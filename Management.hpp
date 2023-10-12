@@ -4,8 +4,9 @@
 
 class Managment {
     public:
-    std::string ManagmentName;
+    std::string const ManagementName();
     bool Recall(Snack object);
+    
     private:
     //void ReportData(inventory);
     // void operation2(params);             not sure what these for
