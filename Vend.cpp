@@ -4,6 +4,9 @@
 #include "Management.hpp"
 #include "Management.cpp"
 #include "Vend.hpp"
+#include "Inventory.cpp"
+#include "Intventory.hpp"
+
 
 using namespace std;
 
@@ -24,40 +27,65 @@ void Vend::Customer_Request()
 		{
 			cout << "This object has been recalled"
 		}
-		else
-		//vend function
-*/
+		else {
+			Vend::VendItem();
+		}//vend function
+
 	if (RequestNum == (ValidInput))
 	{
 		cout << "Vending snack!" << endl;
-		VendItem(/*RequestNum*/);
+		VendItem(RequestNum);
 	}
 	else
 	{
 		cout << "This item is either out of stock, expired, or has been recalled" << endl;
-	}
+	}*/
+
+	Vend::checkRecall(RequestNum)
 }
 
 void Vend::VendItem() 
 {
-	Sales = Sales + 4; /*REPLACE WITH PRICE VARIABLE FROM INVENTORY*/
-	snackTracker = snackTracker + 1;
+	Sales = Sales + Snack.price(); //REPLACE WITH PRICE VARIABLE FROM INVENTORY
+	cout << Sales << endl; //DELETE ONCE TEST IS COMPLETE
+	salesTracker = salesTracker + 1;
+	
 }
 
-void Vend::Notification() 
-{
+//void Vend::Notification()
+//{
     // Implementation of Notification function
     // ...
-}
+//} ADD LATER
 
 void Vend::checkInventory() 
 {
+	Inventory::search(RequestNum);
     // Implementation of checkInventory function
     // ...
 }
 
 void Vend::checkRecall() 
 {
-    // Implementation of checkRecall function
-    // ...
+	Recall(snack object)
+		if (false)
+		{
+			cout << "This object has been recalled"
+		}
+		else {
+			Vend::VendItem();
+		}//vend function
+}
+
+void main()
+{
+	Snack Cheetos;
+	Cheetos.vendingNum("a1");
+	Cheetos.price(4.69);
+	Cheetos.quantity(1);
+	Inventory Test;
+
+	Test.AddSnackInventory(Cheetos);
+
+	Vend::Customer_Request();
 }
