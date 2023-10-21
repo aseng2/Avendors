@@ -1,21 +1,26 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Snack.hpp"
+#include "Inventory.h"
 using namespace std;
 
 // testing
-class Restocker
+class Restocker: public Inventory
 {
 private:
-	int id;
+	string name;
 
 public:
-	Restocker(int id);
+	//Restocker(string name);
 	Restocker();
 	~Restocker();
-	void set_id(int id);
-	int get_id();
-	void display_employee();
+	void set_restocker_name(string name);
+	string get_restocker_name();
+	void restock(Snack snake);
+	//snack_expired(Snake snake);
+
+	//void display_employee();
 
 };
 

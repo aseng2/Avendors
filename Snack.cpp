@@ -1,5 +1,5 @@
 #include <cmath>                                                      // abs(), pow()
-#include <compare>                                                    // weak_ordering
+//#include <compare>                                                    // weak_ordering
 #include <iomanip>                                                    // quoted(), ios::failbit
 #include <iostream>                                                   // istream, ostream, ws()
 #include <string>
@@ -339,3 +339,4 @@ std::ostream & operator<<( std::ostream & stream, const Snack & Snack )
     ///        1) https://en.cppreference.com/w/cpp/io/manip/quoted
     ///        2) https://www.youtube.com/watch?v=Mu-GUZuU31A
   return stream << std::quoted( Snack._upcCode ) << ", " << std::quoted( Snack._brandName ) << ", " << std::quoted( Snack._productName ) << ", " << std::quoted( Snack._vendingNum ) << ", "  << Snack._quantity << ", "  << Snack._price;
+}

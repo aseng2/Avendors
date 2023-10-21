@@ -5,13 +5,13 @@
 
 Restocker::Restocker()
 {
-	id = 0;
+	name = " ";
 }
 
-Restocker::Restocker(int id)
-{
-	this->id = id;
-}
+//Restocker::Restocker(string name)
+//{
+	//this->name = name;
+//}
 
 Restocker::~Restocker()
 {
@@ -19,19 +19,29 @@ Restocker::~Restocker()
 }
 
 
-void Restocker::set_id(int id)
+void Restocker::set_restocker_name(string name)
 {
-	this->id = id;
+	this->name = name;
 }
 
 
-int Restocker::get_id()
+string Restocker::get_restocker_name()
 {
-	return id;
+	return name;
 }
 
-void Restocker::display_employee()
+
+void Restocker::restock(Snack snack)
 {
-	cout << " employee ID:";
-	cout << id << endl;
+	Inventory restockInv;
+	restockInv.RestockInventory(snack);
 }
+
+
+
+
+//void Restocker::display_employee()
+//{
+	//cout << " employee ID:";
+	//cout << name << endl;
+//}

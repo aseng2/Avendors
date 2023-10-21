@@ -1,4 +1,5 @@
-#include <compare>                                                            // std::weak_ordering
+#pragma once
+//#include <compare>                                                            // std::weak_ordering
 #include <iostream>
 #include <string>
 
