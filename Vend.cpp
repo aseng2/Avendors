@@ -36,12 +36,12 @@ void Vend::Customer_Request()
 		cout << "This item is either out of stock, expired, or has been recalled" << endl;
 	}*/
 
-	Vend::checkRecall(RequestNum)
+	Vend::checkRecall();
 }
 
 void Vend::VendItem() 
 {
-	Sales = Sales + Snack.price(); //REPLACE WITH PRICE VARIABLE FROM INVENTORY
+	Sales = Sales + Item.price(); //REPLACE WITH PRICE VARIABLE FROM INVENTORY
 	cout << Sales << endl; //DELETE ONCE TEST IS COMPLETE
 	salesTracker = salesTracker + 1;
 	
@@ -53,19 +53,19 @@ void Vend::VendItem()
     // ...
 //} ADD LATER
 
-Snack Vend::checkInventory(Inventory List) 
+void Vend::checkInventory(Inventory List) 
 {
-	List.search(RequestNum);
+	Item = List.search(RequestNum);
     // Implementation of checkInventory function
     // ...
 }
 
-void Vend::checkRecall(Snack Recalable) 
+void Vend::checkRecall() 
 {
-	Recall(snack object)
-		if (false)
+	Management Boss;			//this will need to be changed later, but works for now	
+		if (Boss.Recall(Item)==false)
 		{
-			cout << "This object has been recalled"
+			cout << "This object has been recalled" << std::endl;
 		}
 		else {
 			Vend::VendItem();

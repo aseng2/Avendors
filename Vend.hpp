@@ -55,11 +55,12 @@ public:
 
 private:
 	std::string RequestNum; // the number the customer inputs to choose a snack.
+	Snack Item;
 	double MoneyIn; // tracks how much total money is in the machine
 	double Sales = 0; // tracks the amount of money made from sales
 	int salesTracker; // tracks the number of sold items
 	char ValidInput;
 
-	Snack checkInventory(Inventory List);
-	void checkRecall(Management Boss,Snack Recalable);
+	void checkInventory(Inventory List);
+	void checkRecall();
 };
