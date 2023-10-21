@@ -49,13 +49,14 @@ class Vend
 {
 public:
 	Vend(); // Constructor
-	void Customer_Request();
+	void Customer_Request(Inventory List);
 	void VendItem();
 //	void Notification(); ADD LATER
 
 private:
 	std::string RequestNum; // the number the customer inputs to choose a snack.
 	Snack Item;
+	Inventory Stuff;
 	double MoneyIn; // tracks how much total money is in the machine
 	double Sales = 0; // tracks the amount of money made from sales
 	int salesTracker; // tracks the number of sold items

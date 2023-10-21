@@ -3,7 +3,7 @@
 #define INVENTORY_HPP
 
 #include <vector>
-#include "snack.hpp"
+#include "Snack.hpp"
 
 class Inventory {
 private:

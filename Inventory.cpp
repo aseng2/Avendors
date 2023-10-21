@@ -29,6 +29,8 @@ Snack Inventory::search(std::string target) {
         }
         start++;
     }
+    Snack fail;
+    return fail;
 }
 
 void Inventory::display() {

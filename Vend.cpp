@@ -11,7 +11,7 @@ Vend::Vend()
     // Initialize member variables if needed
 }
 
-void Vend::Customer_Request() 
+void Vend::Customer_Request(Inventory List) 
 {
 	cout << "Welcome! Please Enter Your Snack Request: ";
 	cin >> RequestNum;
@@ -35,7 +35,7 @@ void Vend::Customer_Request()
 	{
 		cout << "This item is either out of stock, expired, or has been recalled" << endl;
 	}*/
-
+	Vend::checkInventory(List);
 	Vend::checkRecall();
 }
 
@@ -56,6 +56,7 @@ void Vend::VendItem()
 void Vend::checkInventory(Inventory List) 
 {
 	Item = List.search(RequestNum);
+	
     // Implementation of checkInventory function
     // ...
 }
