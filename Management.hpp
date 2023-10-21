@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#pragma once
 #include "Snack.hpp"    //for now as that is the only one i saw on github
 
 class Managment {

@@ -2,7 +2,6 @@
 //#include <compare>                                                            // std::weak_ordering
 #include <iostream>
 #include <string>
-
 class Snack
 {
   // Insertion and Extraction Operators
