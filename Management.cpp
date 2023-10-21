@@ -4,7 +4,8 @@ std::string const ManagementName() {
     return "Avendors";
 };
 
-bool Recall(Snack object) {
+bool Managment::Recall(Snack object)
+{
     if (object.productName() == "Dorritos" ){
         return false;
     }
