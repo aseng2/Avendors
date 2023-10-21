@@ -1,27 +1,37 @@
 #include "restocker.h"
 // testing
 
+
+
 Restocker::Restocker()
 {
-	restcokerId = 0;
+	id = 0;
 }
-		// initial state of the restocker
-Restocker::Restocker(string snakes, int numSnakes)
+
+Restocker::Restocker(int id)
 {
-	restcokerId = 0;
+	this->id = id;
 }
-void Restocker::store_new_items(string snakes, int numSnakes)
-{		// replace damage and expired items with new items 
-// or jusr remove all items 
+
+Restocker::~Restocker()
+{
 
 }
 
-void Restocker::store_items(string snakes, int numItems)
+
+void Restocker::set_id(int id)
 {
-	// adding newitems to the vending machine
+	this->id = id;
 }
 
-void Restocker::prepare_inventory(string snakes, int numItems)
+
+int Restocker::get_id()
 {
-	// display invemtory
+	return id;
+}
+
+void Restocker::display_employee()
+{
+	cout << " employee ID:";
+	cout << id << endl;
 }
