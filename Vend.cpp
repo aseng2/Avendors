@@ -1,11 +1,6 @@
-#pragma once
 #include <iostream>
 #include <string>
-#include "Management.hpp"
-#include "Management.cpp"
 #include "Vend.hpp"
-#include "Inventory.cpp"
-#include "Intventory.hpp"
 
 
 using namespace std;
@@ -58,14 +53,14 @@ void Vend::VendItem()
     // ...
 //} ADD LATER
 
-void Vend::checkInventory() 
+Snack Vend::checkInventory(Inventory List) 
 {
-	Inventory::search(RequestNum);
+	List.search(RequestNum);
     // Implementation of checkInventory function
     // ...
 }
 
-void Vend::checkRecall() 
+void Vend::checkRecall(Snack Recalable) 
 {
 	Recall(snack object)
 		if (false)
@@ -75,17 +70,4 @@ void Vend::checkRecall()
 		else {
 			Vend::VendItem();
 		}//vend function
-}
-
-void main()
-{
-	Snack Cheetos;
-	Cheetos.vendingNum("a1");
-	Cheetos.price(4.69);
-	Cheetos.quantity(1);
-	Inventory Test;
-
-	Test.AddSnackInventory(Cheetos);
-
-	Vend::Customer_Request();
 }

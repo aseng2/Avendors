@@ -40,6 +40,8 @@ class Vend
 #pragma once
 #include <iostream>
 #include <string>
+#include "Management.hpp"
+#include "Inventory.hpp"
 
 
 
@@ -58,6 +60,6 @@ private:
 	int salesTracker; // tracks the number of sold items
 	char ValidInput;
 
-	void checkInventory();
-	void checkRecall();
+	Snack checkInventory(Inventory List);
+	void checkRecall(Management Boss,Snack Recalable);
 };
