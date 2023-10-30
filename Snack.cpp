@@ -9,10 +9,10 @@
 #include "Snack.hpp"
 
 // Default and Conversion Constructor
-Snack::Snack( std::string productName, std::string brandName, std::string upcCode, std::string vendingNum, int quantity, double price )
+Snack::Snack( std::string productName, std::string brandName, std::string upcCode, std::string vendingNum, int quantity, double price, int expireddate )
   ///////////////////////// TO-DO (2) //////////////////////////////
   /// Copying the parameters into the object's attributes (member variables) "works" but is not correct.  Be sure to move the parameters into the object's attributes
-  : _upcCode( std::move( upcCode ) ), _brandName( std::move( brandName ) ), _productName( std::move( productName ) ), _vendingNum( std::move( vendingNum ) ), _quantity(std::move(quantity)), _price( std::move( price ) )
+  : _upcCode( upcCode ), _brandName( brandName ), _productName( productName ), _vendingNum( vendingNum ), _quantity(quantity), _price( price ), _expireddate( expireddate)
 {}
 /////////////////////// END-TO-DO (2) ////////////////////////////
 
@@ -22,7 +22,7 @@ Snack::Snack( std::string productName, std::string brandName, std::string upcCod
 // Copy constructor
 Snack::Snack( Snack const & other )
   ///////////////////////// TO-DO (3) //////////////////////////////
-  : _upcCode( other._upcCode ), _brandName( other._brandName ), _productName( other._productName ), _vendingNum( other._vendingNum ), _quantity( other._quantity ),_price( other._price )
+  : _upcCode( other._upcCode ), _brandName( other._brandName ), _productName( other._productName ), _vendingNum( other._vendingNum ), _quantity( other._quantity ),_price( other._price ), _expireddate (other._expireddate)
 {}
 /////////////////////// END-TO-DO (3) ////////////////////////////
 
@@ -32,7 +32,7 @@ Snack::Snack( Snack const & other )
 // Move constructor
 Snack::Snack( Snack && other ) noexcept
   ///////////////////////// TO-DO (4) //////////////////////////////
-  : _upcCode( std::move( other._upcCode ) ), _brandName( std::move( other._brandName ) ), _productName( std::move( other._productName ) ), _vendingNum( std::move( other._vendingNum ) ), _quantity( std::move( other._quantity ) ) ,_price( std::move( other._price ) )
+  : _upcCode( std::move( other._upcCode ) ), _brandName( std::move( other._brandName ) ), _productName( std::move( other._productName ) ), _vendingNum( std::move( other._vendingNum ) ), _quantity( std::move( other._quantity ) ) ,_price( std::move( other._price ) ), _expireddate( std::move( other._expireddate ) )
 {
 }
 /////////////////////// END-TO-DO (4) ////////////////////////////
@@ -52,6 +52,7 @@ Snack & Snack::operator=( Snack const & rhs ) &
     _vendingNum     = rhs._vendingNum;
     _quantity = rhs._quantity;
     _price       = rhs._price;
+    _expireddate = rhs._expireddate;
   }
   return *this;
 }
@@ -72,6 +73,7 @@ Snack & Snack::operator=( Snack && rhs ) & noexcept
     _vendingNum     = std::move( rhs._vendingNum );
     _quantity = std::move(rhs._quantity);
     _price       = std::move( rhs._price );
+    _expireddate       = std::move( rhs._expireddate );
   }
   return *this;
 }
@@ -151,6 +153,13 @@ double Snack::price() const &
   /////////////////////// END-TO-DO (11) ////////////////////////////
 }
 
+// expireddate() const
+int Snack::expireddate() const &
+{
+  ///////////////////////// TO-DO (11) //////////////////////////////
+  return _expireddate;
+  /////////////////////// END-TO-DO (11) ////////////////////////////
+}
 
 
 
@@ -202,12 +211,11 @@ std::string Snack::vendingNum() &&
 *******************************************************************************/
 
 // upcCode()
-Snack & Snack::upcCode( std::string newUpcCode ) &
+void Snack::upcCode( std::string newUpcCode )
 {
   ///////////////////////// TO-DO (15) //////////////////////////////
     /// Copy assignment "works" but is not correct.  Be sure to move newUpcCode into _upcCode
-  _upcCode = std::move( newUpcCode );
-  return *this;
+  _upcCode = newUpcCode ;
   /////////////////////// END-TO-DO (15) ////////////////////////////
 }
 
@@ -215,11 +223,10 @@ Snack & Snack::upcCode( std::string newUpcCode ) &
 
 
 // brandName()
-Snack & Snack::brandName( std::string newBrandName ) &
+void Snack::brandName( std::string newBrandName )
 {
   ///////////////////////// TO-DO (16) //////////////////////////////
-  _brandName = std::move( newBrandName );
-  return *this;
+  _brandName = newBrandName;
   /////////////////////// END-TO-DO (16) ////////////////////////////
 }
 
@@ -227,41 +234,44 @@ Snack & Snack::brandName( std::string newBrandName ) &
 
 
 // productName()
-Snack & Snack::productName( std::string newProductName ) &
+void Snack::productName( std::string newProductName )
 {
   ///////////////////////// TO-DO (17) //////////////////////////////
-  _productName = std::move( newProductName );
-  return *this;
+  _productName = newProductName;
   /////////////////////// END-TO-DO (17) ////////////////////////////
 }
 
 // vendingNum()
-Snack & Snack::vendingNum( std::string newVendingNum ) &
+void Snack::vendingNum( std::string newVendingNum ) 
 {
   ///////////////////////// TO-DO (17) //////////////////////////////
-  _vendingNum = std::move( newVendingNum );
-  return *this;
+  _vendingNum = newVendingNum ;
   /////////////////////// END-TO-DO (17) ////////////////////////////
 }
 
 // price()
-Snack & Snack::quantity( int newQuantity ) &
+void Snack::quantity( int newQuantity ) 
 {
   ///////////////////////// TO-DO (18) //////////////////////////////
-  _quantity = std::move( newQuantity );
-  return *this;
+  _quantity = newQuantity;
   /////////////////////// END-TO-DO (18) ////////////////////////////
 }
 
 // price()
-Snack & Snack::price( double newPrice ) &
+void Snack::price( double newPrice ) 
 {
   ///////////////////////// TO-DO (18) //////////////////////////////
-  _price = std::move( newPrice );
-  return *this;
+  _price = newPrice;
   /////////////////////// END-TO-DO (18) ////////////////////////////
 }
 
+// price()
+void Snack::expireddate( int newExpiredDate ) 
+{
+  ///////////////////////// TO-DO (18) //////////////////////////////
+  _expireddate = newExpiredDate;
+  /////////////////////// END-TO-DO (18) ////////////////////////////
+}
 
 
 
@@ -312,7 +322,7 @@ std::istream & operator>>( std::istream & stream, Snack & snackItem )
   char        delimiter = '\0';
 
 
-  if( stream >> std::ws >> std::quoted( temp._upcCode ) && stream >> std::ws >> delimiter && delimiter == ',' && stream >> std::ws >> std::quoted( temp._brandName ) && stream >> std::ws >> delimiter && delimiter == ',' && stream >> std::ws >> std::quoted( temp._productName ) && stream >> std::ws >> delimiter && delimiter == ',' && stream >> std::ws >> std::quoted( temp._vendingNum ) && stream >> std::ws >> delimiter && delimiter == ',' && stream >> std::ws >> temp._quantity && stream >> std::ws >> delimiter && delimiter == ',' && stream >> std::ws >> temp._price)
+  if( stream >> std::ws >> std::quoted( temp._upcCode ) && stream >> std::ws >> delimiter && delimiter == ',' && stream >> std::ws >> std::quoted( temp._brandName ) && stream >> std::ws >> delimiter && delimiter == ',' && stream >> std::ws >> std::quoted( temp._productName ) && stream >> std::ws >> delimiter && delimiter == ',' && stream >> std::ws >> std::quoted( temp._vendingNum ) && stream >> std::ws >> delimiter && delimiter == ',' && stream >> std::ws >> temp._quantity && stream >> std::ws >> delimiter && delimiter == ',' && stream >> std::ws >> temp._price && stream >> std::ws >> delimiter && delimiter == ',' && stream >> std::ws >> temp._expireddate)
   {
     snackItem = std::move( temp );
   }
@@ -338,5 +348,5 @@ std::ostream & operator<<( std::ostream & stream, const Snack & Snack )
     /// Hint:  Brand and product names may have quotes, which need to escaped when printing.  Use std::quoted to read and write quoted strings.  See
     ///        1) https://en.cppreference.com/w/cpp/io/manip/quoted
     ///        2) https://www.youtube.com/watch?v=Mu-GUZuU31A
-  return stream << std::quoted( Snack._upcCode ) << ", " << std::quoted( Snack._brandName ) << ", " << std::quoted( Snack._productName ) << ", " << std::quoted( Snack._vendingNum ) << ", "  << Snack._quantity << ", "  << Snack._price;
+  return stream << std::quoted( Snack._upcCode ) << ", " << std::quoted( Snack._brandName ) << ", " << std::quoted( Snack._productName ) << ", " << std::quoted( Snack._vendingNum ) << ", "  << Snack._quantity << ", "  << Snack._price << ", "  << Snack._expireddate;
 }
