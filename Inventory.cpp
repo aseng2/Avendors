@@ -2,7 +2,7 @@
 //#include <compare>  
 #include <iostream>
 #include "Snack.hpp"
-#include "Inventory.h"
+#include "Inventory.hpp"
 
 void Inventory::AddSnackInventory(Snack& SnackObj) {
     SnackList.push_back(SnackObj);
@@ -39,7 +39,7 @@ void Inventory::display() {
     std::cout << "UPC Code, Brand Name, Product Name, quantitiy, spot, price" << std::endl;
     while (start < LoopEnd) {
         Snack Output = SnackList[start];
-        std::cout << Output.productName() << ", " << Output.brandName() << ", " << Output.upcCode() << ", "<< Output.quantity() << ", " << Output.vendingNum() << ", " << Output.price() << std::endl;
+        std::cout << Output.productName() << ", " << Output.brandName() << ", " << Output.upcCode() << ", "<< Output.quantity() << ", " << Output.vendingNum() << ", " << Output.price() << ", " << Output.expireddate() << std::endl;
         start++;
     }
 }

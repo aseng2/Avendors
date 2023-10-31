@@ -16,7 +16,7 @@ class Snack
                  std::string vendingNum   = {},
                  int quantity = 0,                                // good when combined with move semantics. 
                  double      price       = 0.0,
-                 int _expireddate = 0 );
+                 int _expireddate = 99999999 );
 
     Snack & operator=( Snack const  & rhs   ) &;                  // Assignment operators available only for l-values (that's what the trailing "&" means), and then
     Snack & operator=( Snack       && rhs   ) & noexcept;         // the 'Rule of 5' says if you define one, then you should define them all
