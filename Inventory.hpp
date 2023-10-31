@@ -8,6 +8,7 @@
 class Inventory {
 private:
     std::vector<Snack> SnackList;
+    std::vector<Snack> SalesList;
 
 public:
     void AddSnackInventory(Snack& SnackObj);
@@ -15,6 +16,9 @@ public:
     void RestockInventory(Snack& SnackObj);
     Snack search(std::string target);
     void display();
+    void AddSalesList(Snack& SnackObj);
+    Snack searchSalesList(std::string targetUPCcode);
+    int index(Snack& SnackObj);
 };
 
 #endif
