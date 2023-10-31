@@ -19,6 +19,9 @@ public:
     void AddSalesList(Snack& SnackObj);
     Snack searchSalesList(std::string targetUPCcode);
     int index(Snack& SnackObj);
+    void addSale(Snack& SnackObj);
+    int SaleHistoryIndex(Snack& SnackObj);
+    void displaySalesHistory();
 };
 
 #endif

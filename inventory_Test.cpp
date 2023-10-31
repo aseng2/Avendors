@@ -11,7 +11,8 @@ int main() {
     test.BuyInventory(Airhead);
     test.RestockInventory(Lays);
     test.display();
-    Lays.quantity(10);
-    std::cout << Lays.quantity();
+    test.BuyInventory(Lays);
+    test.BuyInventory(Airhead);
+    test.displaySalesHistory();
     return 1;
 }

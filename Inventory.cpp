@@ -12,6 +12,7 @@ void Inventory::BuyInventory(Snack& SnackObj) {
     int Spot = index(SnackObj);
     int newvalue = SnackList[Spot].quantity()-1;
 	SnackList[Spot].quantity(newvalue);
+    AddSalesList(SnackObj);
 }
 
 void Inventory::RestockInventory(Snack& SnackObj) {
@@ -61,8 +62,23 @@ void Inventory::AddSalesList(Snack& SnackObj) {
         SalesList.push_back(NewSnack);
     }
     else {
-        RestockInventory(Check);
+        addSale(Check);
     }
+}
+
+void Inventory::addSale(Snack& SnackObj){
+    int Spot = SaleHistoryIndex(SnackObj);
+    int newvalue = SalesList[Spot].quantity()+1;
+    SalesList[Spot].quantity(newvalue);
+}
+
+int Inventory::SaleHistoryIndex(Snack& SnackObj){
+    for(int i = 0; i < SalesList.size(); i++){
+        if (SnackObj.upcCode() == SalesList[i].upcCode()){
+            return i;
+        }
+    }
+    return -1;
 }
 
 Snack Inventory::searchSalesList(std::string targetUPCcode) {
@@ -78,4 +94,14 @@ Snack Inventory::searchSalesList(std::string targetUPCcode) {
     }
     Snack fail;
     return fail;
+}
+
+void Inventory::displaySalesHistory(){
+    std::cout << "Sales History:" << std::endl;
+    std::cout << "Product Name, Brand Name, UPCcode, Amount sold, location, price, expiration date" << std::endl;
+    for (int i = 0; i < SalesList.size(); i++){
+        Snack Output = SalesList[i];
+        std::cout << Output.productName() << ", " << Output.brandName() << ", " << Output.upcCode() << ", "<< Output.quantity() << ", " << Output.vendingNum() << ", " << Output.price() << ", " << Output.expireddate() << std::endl;
+
+    }
 }
