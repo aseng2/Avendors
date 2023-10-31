@@ -42,7 +42,7 @@ void Vend::Customer_Request(Inventory List)
 void Vend::VendItem() 
 {
 	Sales = Sales + Item.price(); //REPLACE WITH PRICE VARIABLE FROM INVENTORY
-	cout << Sales << endl; //DELETE ONCE TEST IS COMPLETE
+	cout << "$" << Sales << endl; //DELETE ONCE TEST IS COMPLETE
 	salesTracker = salesTracker + 1;
 	
 }
