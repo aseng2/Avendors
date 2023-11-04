@@ -25,7 +25,7 @@ bool Management::Recall(Snack object)
 {
     //check if item is in recall
     for(std::string i : _recall){
-        if (i == object.UPC){
+        if (i == object._upcCode){
             return true;
         }
     }
