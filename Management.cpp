@@ -4,10 +4,13 @@ std::string const Management::ManagementName() {
     return "Avendors";
 };
 
-bool Management::Recall(Snack object)
+bool Management::Recall(Snack object, vector<std::string> v)
 {
-    if (object.brandName() == "Dorritos" ){
-        return false;
+    //check the vector v
+    for(std::string i : v){
+        if (i == object.UPC){
+            return true;
+        }
     }
-    return true;
+    return false;
 }
