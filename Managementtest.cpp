@@ -12,7 +12,7 @@ void readFile(std::string title){
     fstream MyReadFile(title);
     if (MyReadFile.is_open()){
         while (getline (MyReadFile, myText)) {
-            recall_items.pushback(myText);
+            recall_items.push_back(myText);
             }
         //Close the file
         MyReadFile.close();
@@ -25,20 +25,13 @@ void readFile(std::string title){
 int main() {
     readFile("recall.txt");
     Snack tester("UPC code - 132156", "Dorritos", "nacho", "position - A1", 10/*quantity*/, 5.99/*price*/);
-    Management test;
-    if (test.Recall(tester)){
-        std::cout << "Recall - expected result" << std::endl;
-    }
-    else {
-        std::cout << "No recall - error" << std::endl;
-    }
+    Management test("Avendor", recall_items);
+    std::string result = (test.Recall(tester))? "Recall - expected result" : "No recall - error";
+    std::cout << result << std::endl;
     Snack Safe ("UPC code - 132156", "Cheetos", "cheesy", "position - A1", 10/*quantity*/, 5.99/*price*/);
-    if (test.Recall(Safe)){
-        std::cout << "Recall - error" << std::endl;        
-    }
-    else {
-        std::cout << "No recall - expected result" << std::endl;
-    }
-        std::cout << "Management Name: " << test.ManagementName() << std::endl;
+    result = (test.Recall(Safe))? "Recall - error" : "No recall - expected result";
+    std::cout << result << std::endl;
+    std::cout << "Management Name: " << test.getName() << std::endl;
+    std::cout << "Items in recall: << test.display();
     return 1;
 }
