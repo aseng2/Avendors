@@ -28,9 +28,11 @@ int main() {
     Management test("Avendor", recall_items);
     std::string result = (test.Recall(tester))? "Recall - expected result" : "No recall - error";
     std::cout << result << std::endl;
+    
     Snack Safe ("132156", "Cheetos", "cheesy", "position - A1", 10/*quantity*/, 5.99/*price*/);
     result = (test.Recall(Safe))? "Recall - error" : "No recall - expected result";
     std::cout << result << std::endl;
+    
     std::cout << "Management Name: " << test.getName() << std::endl;
     std::cout << "Items UPC's in recall: << test.display();
     return 1;
