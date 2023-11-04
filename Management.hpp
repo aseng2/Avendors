@@ -11,6 +11,7 @@ class Management {
     void setName(std::string newName);
     void setRecall(std::vector<std::string> newRecall);
     std::string getName();
+    void display();
     
     private:
     std:vector<std::string> _recall;
