@@ -24,8 +24,9 @@ void readFile(std::string title){
 
 int main() {
     readFile("recall.txt");
-    Snack tester("132156", "Dorritos", "nacho", "position - A1", 10/*quantity*/, 5.99/*price*/);
     Management test("Avendor", recall_items);
+    
+    Snack tester("132156", "Dorritos", "nacho", "position - A1", 10/*quantity*/, 5.99/*price*/);
     std::string result = (test.Recall(tester))? "Recall - expected result" : "No recall - error";
     std::cout << result << std::endl;
     
