@@ -25,12 +25,15 @@ void readFile(std::string title){
 int main() {
     readFile("recall.txt");
     Management test("Avendor", recall_items);
+
     
-    Snack tester("132156", "Dorritos", "nacho", "position - A1", 10/*quantity*/, 5.99/*price*/);
+    //string productName, string brandName, string upcCode, string vendingNum, int quantity, double price, int _expireddate
+    
+    Snack tester("Nacho cheese", "Doritos", "132156", "A1", 10/*quantity*/, 5.00/*price*/, 12102023);
     std::string result = (test.Recall(tester))? "Recall - expected result" : "No recall - error";
     std::cout << result << std::endl;
     
-    Snack Safe ("132156", "Cheetos", "cheesy", "position - A1", 10/*quantity*/, 5.99/*price*/);
+    Snack Safe ("Cheetos", Cheesy", "132156","A2", 10/*quantity*/, 5.99/*price*/, 12122023);
     result = (test.Recall(Safe))? "Recall - error" : "No recall - expected result";
     std::cout << result << std::endl;
     
