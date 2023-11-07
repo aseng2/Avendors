@@ -1,5 +1,6 @@
 #include "Snack.hpp"
 #include "inventory.hpp"
+#include "Management.hpp"
 int main() {
     Inventory test;
     Snack DefaultTest;
@@ -14,5 +15,6 @@ int main() {
     test.BuyInventory(Lays);
     test.BuyInventory(Airhead);
     test.displaySalesHistory();
+    test.CreateRemevedList(20241106);
     return 1;
 }

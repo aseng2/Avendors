@@ -19,7 +19,7 @@ public:
     Snack search(std::string target);
     void display();
     void AddSalesList(Snack& SnackObj);
-    Snack searchSalesList(std::string targetUPCcode);
+    Snack searchList(std::string targetUPCcode, std::vector<Snack> List);
     int index(Snack& SnackObj, std::vector<Snack> List);
     void addSale(Snack& SnackObj);
     void displaySalesHistory();
@@ -27,6 +27,7 @@ public:
     void DisplayRemovedList();
     void emptyRemovedList();
     int RemovedListindex();
+    Snack searchRemovedList(std::string targetUPCcod);
     void UpdateDate(Snack& SnackObj, int NewDate, std::vector<Snack> Modified);
 
 

@@ -56,7 +56,7 @@ void Inventory::display() {
 }
 
 void Inventory::AddSalesList(Snack& SnackObj) {
-    Snack Check = searchSalesList(SnackObj.upcCode());
+    Snack Check = searchList(SnackObj.upcCode(), SnackList);
     if (Check.upcCode() == ""){
         Snack NewSnack (SnackObj.productName(), SnackObj.brandName(), SnackObj.upcCode(), SnackObj.vendingNum(), 1, SnackObj.price(), SnackObj.expireddate() );
         SalesList.push_back(NewSnack);
@@ -73,13 +73,9 @@ void Inventory::addSale(Snack& SnackObj){
 }
 
 
-Snack Inventory::searchSalesList(std::string targetUPCcode) {
-    if (SalesList.size() == 0){
-        Snack fail;
-        return fail;
-    }
+Snack Inventory::searchList(std::string targetUPCcode, std::vector<Snack> List) { //problem with searchList, right now hardcoded to only work with salesList
     for (int i = 0; i < SalesList.size(); i++){
-        Snack test = SalesList[i];
+        Snack test = List[i];
         if (targetUPCcode == test.upcCode()){
             return test;
         }
@@ -101,21 +97,42 @@ void Inventory::displaySalesHistory(){
 void Inventory::DisplayRemovedList(){
     std::cout <<"Please Remove These items in the following locations as they may be expired or recalled: " << std::endl;
     for (int i = 0; i < RemoveList.size(); i++) {
-        std::cout << RemoveList[i].productName() << " at location: " << RemoveList[i].vendingNum();
+        std::cout << RemoveList[i].productName() << " at location: " << RemoveList[i].vendingNum() << std::endl;
     }
 }
 
 void Inventory::CreateRemevedList(int CurrentDate) {
     for (int i = 0; i < SnackList.size(); i++){
         if (SnackList[i].expireddate() <= CurrentDate){
-
+            Snack existCheck = searchRemovedList(SnackList[i].upcCode());
+            if (existCheck.upcCode() == "") {
+                RemoveList.push_back(SnackList[i]);
+            }
+            //UpdateDate(SnackList[i], 99999999, SnackList); does same as next line but uses the function
+            SnackList[i].expireddate(99999999);
+            SnackList[i].quantity(0);
         }
         else {
-            
-        }
+            //recall check with management class implement later when figure out management
+            SnackList[i].expireddate(99999999);
+            SnackList[i].quantity(0);
+        }    
     }
+    DisplayRemovedList();
 }
+
 void Inventory::UpdateDate(Snack& SnackObj, int NewDate, std::vector<Snack> Modified) {
     int Spot = index(SnackObj, Modified);
     Modified[Spot].expireddate(NewDate);
+}
+
+Snack Inventory::searchRemovedList(std::string targetUPCcode) { //problem with searchList, right now hardcoded to only work with salesList
+    for (int i = 0; i < RemoveList.size(); i++){
+        Snack test = RemoveList[i];
+        if (targetUPCcode == test.upcCode()){
+            return test;
+        }
+    }
+    Snack fail;
+    return fail;
 }
