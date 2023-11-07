@@ -6,10 +6,11 @@ Management::Management(std::string name, std::vector<std::string> recall){
     for(std::string i : recall)
         _recall.push_back(i);
 }
+/*
 Management::Management(){
     _name = "";
     _recall.clear();
-}
+}       I Think this isn't necessary*/
 void Management::setName(std::string newName){
     _name = newName;
     }
@@ -25,7 +26,7 @@ bool Management::Recall(Snack object)
 {
     //check if item is in recall
     for(std::string i : _recall){
-        if (i == object._upcCode){
+        if (i == object.upcCode()){
             return true;
         }
     }

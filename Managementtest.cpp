@@ -7,9 +7,9 @@
 std::vector<std::string> recall_items;
 
 void readFile(std::string title){
-    string myText;
+    std::string myText;
     //Read from the text file
-    fstream MyReadFile(title);
+    std::fstream MyReadFile(title);
     if (MyReadFile.is_open()){
         while (getline (MyReadFile, myText)) {
             recall_items.push_back(myText);
@@ -18,7 +18,7 @@ void readFile(std::string title){
         MyReadFile.close();
         }
         else{
-            cout << "Error opening file";
+            std::cout << "Error opening file";
             }
     }
 
@@ -33,11 +33,11 @@ int main() {
     std::string result = (test.Recall(tester))? "Recall - expected result" : "No recall - error";
     std::cout << result << std::endl;
     
-    Snack Safe ("Cheetos", Cheesy", "132156","A2", 10/*quantity*/, 5.99/*price*/, 12122023);
+    Snack Safe ("Cheetos", "Cheesy", "132156","A2", 10/*quantity*/, 5.99/*price*/, 12122023);
     result = (test.Recall(Safe))? "Recall - error" : "No recall - expected result";
     std::cout << result << std::endl;
     
     std::cout << "Management Name: " << test.getName() << std::endl;
-    std::cout << "Items UPC's in recall: << test.display();
+    // std::cout << "Items UPC's in recall: " << test.display(); this line not working, probably becuase there is no display function
     return 1;
 }

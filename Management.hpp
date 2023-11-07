@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #pragma once
-#include "Snack.hpp"    //for now as that is the only one i saw on github
+#include "Snack.hpp"    
 
 class Management {
     public:
@@ -14,7 +14,7 @@ class Management {
     void display();
     
     private:
-    std:vector<std::string> _recall;
+    std::vector<std::string> _recall;
     std::string _name;
     // void operation2(params);             not sure what these for
     //void Operation();                     

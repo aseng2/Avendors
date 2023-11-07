@@ -67,19 +67,11 @@ void Inventory::AddSalesList(Snack& SnackObj) {
 }
 
 void Inventory::addSale(Snack& SnackObj){
-    int Spot = SaleHistoryIndex(SnackObj);
+    int Spot = index(SnackObj, SalesList);
     int newvalue = SalesList[Spot].quantity()+1;
     SalesList[Spot].quantity(newvalue);
 }
 
-int Inventory::SaleHistoryIndex(Snack& SnackObj){
-    for(int i = 0; i < SalesList.size(); i++){
-        if (SnackObj.upcCode() == SalesList[i].upcCode()){
-            return i;
-        }
-    }
-    return -1;
-}
 
 Snack Inventory::searchSalesList(std::string targetUPCcode) {
     if (SalesList.size() == 0){
@@ -111,4 +103,19 @@ void Inventory::DisplayRemovedList(){
     for (int i = 0; i < RemoveList.size(); i++) {
         std::cout << RemoveList[i].productName() << " at location: " << RemoveList[i].vendingNum();
     }
+}
+
+void Inventory::CreateRemevedList(int CurrentDate) {
+    for (int i = 0; i < SnackList.size(); i++){
+        if (SnackList[i].expireddate() <= CurrentDate){
+
+        }
+        else {
+            
+        }
+    }
+}
+void Inventory::UpdateDate(Snack& SnackObj, int NewDate, std::vector<Snack> Modified) {
+    int Spot = index(SnackObj, Modified);
+    Modified[Spot].expireddate(NewDate);
 }
