@@ -4,11 +4,13 @@
 
 #include <vector>
 #include "Snack.hpp"
+#include "Management.hpp"
 
 class Inventory {
 private:
     std::vector<Snack> SnackList;
     std::vector<Snack> SalesList;
+    std::vector<Snack> RemoveList;
 
 public:
     void AddSnackInventory(Snack& SnackObj);
@@ -22,6 +24,11 @@ public:
     void addSale(Snack& SnackObj);
     int SaleHistoryIndex(Snack& SnackObj);
     void displaySalesHistory();
+    void CreateRemevedList();
+    void DisplayRemovedList();
+    void RemovedListindex();
+    
+
 };
 
 #endif
