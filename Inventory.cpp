@@ -9,14 +9,14 @@ void Inventory::AddSnackInventory(Snack& SnackObj) {
 }
 
 void Inventory::BuyInventory(Snack& SnackObj) {
-    int Spot = index(SnackObj);
+    int Spot = index(SnackObj, SnackList);
     int newvalue = SnackList[Spot].quantity()-1;
 	SnackList[Spot].quantity(newvalue);
     AddSalesList(SnackObj);
 }
 
 void Inventory::RestockInventory(Snack& SnackObj) {
-    int Spot = index(SnackObj);
+    int Spot = index(SnackObj, SnackList);
     int newvalue = SnackList[Spot].quantity()+1;
     SnackList[Spot].quantity(newvalue);
 }
@@ -35,9 +35,9 @@ Snack Inventory::search(std::string target) {
     return fail;
 }
 
-int Inventory::index(Snack& SnackObj){
-    for(int i = 0; i < SnackList.size(); i++){
-        if (SnackObj.upcCode() == SnackList[i].upcCode()){
+int Inventory::index(Snack& SnackObj, std::vector<Snack> List){
+    for(int i = 0; i < List.size(); i++){
+        if (SnackObj.upcCode() == List[i].upcCode()){
             return i;
         }
     }
@@ -106,3 +106,9 @@ void Inventory::displaySalesHistory(){
     }
 }
 
+void Inventory::DisplayRemovedList(){
+    std::cout <<"Please Remove These items in the following locations as they may be expired or recalled: " << std::endl;
+    for (int i = 0; i < RemoveList.size(); i++) {
+        std::cout << RemoveList[i].productName() << " at location: " << RemoveList[i].vendingNum();
+    }
+}

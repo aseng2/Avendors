@@ -4,7 +4,6 @@
 
 #include <vector>
 #include "Snack.hpp"
-#include "Management.hpp"
 
 class Inventory {
 private:
@@ -20,14 +19,15 @@ public:
     void display();
     void AddSalesList(Snack& SnackObj);
     Snack searchSalesList(std::string targetUPCcode);
-    int index(Snack& SnackObj);
+    int index(Snack& SnackObj, std::vector<Snack> List);
     void addSale(Snack& SnackObj);
     int SaleHistoryIndex(Snack& SnackObj);
     void displaySalesHistory();
     void CreateRemevedList();
     void DisplayRemovedList();
-    void RemovedListindex();
-    
+    int RemovedListindex();
+    void UpdateDate(Snack& SnackObj, int NewDate, std::vector<Snack> Modified);
+
 
 };
 
