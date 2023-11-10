@@ -8,6 +8,5 @@ int main() {
     Snack Lays ("654321", "Lays", "Lays: Barbecue Flavored", "A5", 7, 5.00);
     Supplies.AddSnackInventory(Lays);
     SnackBot.Customer_Request(Supplies);
-    
 
 }

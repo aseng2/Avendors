@@ -43,7 +43,6 @@ void Vend::VendItem()
 {
 	Sales = Sales + Item.price(); //REPLACE WITH PRICE VARIABLE FROM INVENTORY
 	cout << "$" << Sales << endl; //DELETE ONCE TEST IS COMPLETE
-	salesTracker = salesTracker + 1;
 	
 }
 
@@ -63,12 +62,50 @@ void Vend::checkInventory(Inventory List)
 
 void Vend::checkRecall() 
 {
-	Management Boss;			//this will need to be changed later, but works for now	
-		if (Boss.Recall(Item)==false)
+	Management Boss();			//this will need to be changed later, but works for now	
+		if (Boss().Recall(Item)==false) //this shouldn't work but okay
 		{
 			cout << "This object has been recalled" << std::endl;
 		}
 		else {
 			Vend::VendItem();
 		}//vend function
+}
+
+void Vend::restockProcess(){
+	string upcCode;
+	while(upcCode != "0"){
+		cout << "you entered the Restock code" << std::endl;
+		cout << "Please enter UPC code" << std::endl;
+		cout << "or enter '0' to exit" << std::endl;
+		cin >> upcCode;
+		if (upcCode == "0"){
+			break;
+		}
+
+	}
+}
+
+void Vend::Interface()
+{
+    cout << "Please Input Money:" << endl;
+    cin >> CustomerInput;
+	cout << endl;
+    std::istringstream iss(CustomerInput);
+    double convertedValue;
+
+    if (iss >> convertedValue) {
+        // Conversion successful
+        CustomerMoney = convertedValue;
+        //std::cout << "Conversion successful. Double value: " << convertedValue << std::endl;
+    }
+    else if (CustomerInput == "AA11") {
+        // Check if CustomerInput is equal to "AA11"
+        std::cout << "Restocker Code Acknowledged" << std::endl;
+    }
+    else {
+        // Conversion failed and not equal to "AA11"
+        std::cout << "Invalid Input" << std::endl;
+    }
+
 }

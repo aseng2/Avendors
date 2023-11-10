@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include "Snack.hpp"
-#include "Inventory.h"
+#include "Inventory.hpp"
 using namespace std;
 
 // testing

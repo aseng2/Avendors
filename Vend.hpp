@@ -42,10 +42,12 @@ class Vend
 #include <string>
 #include "Management.hpp"
 #include "Inventory.hpp"
+#include "restocker.h"
+#include "sstream"
 
 
 
-class Vend
+class Vend: public Restocker
 {
 public:
 	Vend(); // Constructor
@@ -59,9 +61,13 @@ private:
 	Inventory Stuff;
 	double MoneyIn; // tracks how much total money is in the machine
 	double Sales = 0; // tracks the amount of money made from sales
-	int salesTracker; // tracks the number of sold items
+	double CustomerMoney;
 	char ValidInput;
+	std::string RestockCode = "AA11";  //code to access restock
+	std::string CustomerInput; 
 
 	void checkInventory(Inventory List);
 	void checkRecall();
+	void restockProcess();
+	void Interface();
 };
