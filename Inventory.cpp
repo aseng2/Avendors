@@ -56,7 +56,7 @@ void Inventory::display() {
 }
 
 void Inventory::AddSalesList(Snack& SnackObj) {
-    Snack Check = searchList(SnackObj.upcCode(), SnackList);
+    Snack Check = searchList(SnackObj.upcCode());
     if (Check.upcCode() == ""){
         Snack NewSnack (SnackObj.productName(), SnackObj.brandName(), SnackObj.upcCode(), SnackObj.vendingNum(), 1, SnackObj.price(), SnackObj.expireddate() );
         SalesList.push_back(NewSnack);
@@ -73,9 +73,9 @@ void Inventory::addSale(Snack& SnackObj){
 }
 
 
-Snack Inventory::searchList(std::string targetUPCcode, std::vector<Snack> List) { //problem with searchList, right now hardcoded to only work with salesList
+Snack Inventory::searchList(std::string targetUPCcode) { //problem with searchList, right now hardcoded to only work with salesList
     for (int i = 0; i < SalesList.size(); i++){
-        Snack test = List[i];
+        Snack test = SalesList[i];
         if (targetUPCcode == test.upcCode()){
             return test;
         }

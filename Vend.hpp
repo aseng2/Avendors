@@ -64,10 +64,12 @@ private:
 	double CustomerMoney;
 	char ValidInput;
 	std::string RestockCode = "AA11";  //code to access restock
+	std::string ExitCode = "BB22";
 	std::string CustomerInput; 
 
 	void checkInventory(Inventory List);
+	void SaleProcess();
 	void checkRecall();
 	void restockProcess();
-	void Interface();
+	void Menu();
 };

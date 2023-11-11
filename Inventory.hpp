@@ -19,7 +19,7 @@ public:
     Snack search(std::string target);
     void display();
     void AddSalesList(Snack& SnackObj);
-    Snack searchList(std::string targetUPCcode, std::vector<Snack> List);
+    Snack searchList(std::string targetUPCcode);
     int index(Snack& SnackObj, std::vector<Snack> List);
     void addSale(Snack& SnackObj);
     void displaySalesHistory();

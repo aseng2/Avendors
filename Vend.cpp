@@ -1,5 +1,3 @@
-#include <iostream>
-#include <string>
 #include "Vend.hpp"
 
 
@@ -75,37 +73,75 @@ void Vend::checkRecall()
 void Vend::restockProcess(){
 	string upcCode;
 	while(upcCode != "0"){
-		cout << "you entered the Restock code" << std::endl;
 		cout << "Please enter UPC code" << std::endl;
 		cout << "or enter '0' to exit" << std::endl;
 		cin >> upcCode;
 		if (upcCode == "0"){
 			break;
 		}
+		Snack targetToAdd = searchList(upcCode);
+
+		if (targetToAdd.upcCode() == "") {
+			cout << "Does not belong in this machine. 0 to overide, anything else to cancel"<< endl;
+			string input;
+			cin >> input;
+			if (input == "0"){
+				cout << "Please enter UPCcode: " << endl;
+				
+			}
+			
+		}
 
 	}
 }
 
-void Vend::Interface()
+void Vend::Menu()
 {
-    cout << "Please Input Money:" << endl;
-    cin >> CustomerInput;
-	cout << endl;
-    std::istringstream iss(CustomerInput);
-    double convertedValue;
+    while (CustomerInput != ExitCode)
+    {
+        cout << "Please Input Value:" << endl;
+        cin >> CustomerInput;
+        cout << endl;
+        std::istringstream iss(CustomerInput);
+        double convertedValue;
 
-    if (iss >> convertedValue) {
-        // Conversion successful
-        CustomerMoney = convertedValue;
-        //std::cout << "Conversion successful. Double value: " << convertedValue << std::endl;
+        if (CustomerInput == "0") {
+            cout << "Returming Money: $" << CustomerMoney << endl;
+            CustomerMoney = 0;
+        }
+        else if (iss >> convertedValue) {
+            // Conversion successful
+            CustomerMoney = CustomerMoney + convertedValue;
+            convertedValue == 0;
+
+
+
+            //std::cout << "Conversion successful. Double value: " << convertedValue << std::endl;
+        }
+        else if (CustomerInput == "AA11") {
+            // Check if CustomerInput is equal to "AA11"
+            std::cout << "Restocker Code Acknowledged" << std::endl;
+            restockProcess();
+        }
+        else {
+            // Conversion failed and not equal to "AA11"
+            std::cout << "Invalid Input" << std::endl;
+			SaleProcess();
+        }
     }
-    else if (CustomerInput == "AA11") {
-        // Check if CustomerInput is equal to "AA11"
-        std::cout << "Restocker Code Acknowledged" << std::endl;
+}
+
+
+void Vend::SaleProcess() {
+    Snack Customer_Snack = search(CustomerInput);
+    if (Customer_Snack.upcCode() == "") {
+        cout << "Invalid Input";
+        return;
     }
-    else {
-        // Conversion failed and not equal to "AA11"
-        std::cout << "Invalid Input" << std::endl;
+	if (Customer_Snack.quantity() < 1) {
+        cout << "Product is out of stock";
+        return;
     }
+    //add expiration date check here
 
 }
