@@ -72,26 +72,63 @@ void Vend::checkRecall()
 
 void Vend::restockProcess(){
 	string upcCode;
+	CreateRemevedList( 20231114/*here is where we pass the current date int for now place holder*/);
+	DisplayRemovedList();
 	while(upcCode != "0"){
 		cout << "Please enter UPC code" << std::endl;
 		cout << "or enter '0' to exit" << std::endl;
 		cin >> upcCode;
 		if (upcCode == "0"){
-			break;
+			return;
 		}
+		string input;
+		int number;
 		Snack targetToAdd = searchList(upcCode);
-
 		if (targetToAdd.upcCode() == "") {
+
 			cout << "Does not belong in this machine. 0 to overide, anything else to cancel"<< endl;
-			string input;
+			
 			cin >> input;
 			if (input == "0"){
 				cout << "Please enter UPCcode: " << endl;
-				
+				cin >> input;
+				targetToAdd.upcCode(input);
+				cout << endl << "Please enter Product Name: " << endl;
+				cin >> input;
+				targetToAdd.productName(input);
+				cout << endl << "Please enter Brand Name: " << endl;
+				cin >> input;
+				targetToAdd.brandName(input);
+				cout << endl << "Please enter quantity to add, must be an integer: " << endl;
+				cin >> input;
+				number = stoi(input);
+				targetToAdd.quantity(number);
+				cout << endl << "Please enter date of expiration, as integer year month day: " << endl;
+				cin >> input;
+				number = stoi(input);
+				targetToAdd.expireddate(number);
+				cout << endl << "Please enter the price as double: " << endl;
+				cin >> input;
+				cout << endl;
+				double numberTwo;
+				numberTwo = stod(input);
+				targetToAdd.price(numberTwo);
+				AddSnackInventory(targetToAdd);
 			}
-			
 		}
-
+		else {
+			cout << "Please enter amount adding as an integer: " << endl;
+			cin >> number;
+			for (int i = 0; i < number; i++){
+				restock(targetToAdd);
+			}
+			cout << endl << "Please enter the soonest expiration date as an integer in year month date: " << endl;
+			cin >> number;
+			cout << endl;
+			if (number < targetToAdd.expireddate()){
+				// UpdateDate(targetToAdd, number, getter function goes here);
+			}
+		}
 	}
 }
 
@@ -113,19 +150,22 @@ void Vend::Menu()
             // Conversion successful
             CustomerMoney = CustomerMoney + convertedValue;
             convertedValue == 0;
-
+			cout << "Money in machine: $" << CustomerMoney << endl;
 
 
             //std::cout << "Conversion successful. Double value: " << convertedValue << std::endl;
         }
-        else if (CustomerInput == "AA11") {
+        else if (CustomerInput == RestockCode) {
             // Check if CustomerInput is equal to "AA11"
             std::cout << "Restocker Code Acknowledged" << std::endl;
             restockProcess();
         }
+		else if (CustomerInput == ExitCode){
+			cout << "shutting down begun";
+			return;
+		}
         else {
             // Conversion failed and not equal to "AA11"
-            std::cout << "Invalid Input" << std::endl;
 			SaleProcess();
         }
     }
@@ -138,10 +178,11 @@ void Vend::SaleProcess() {
         cout << "Invalid Input";
         return;
     }
-	if (Customer_Snack.quantity() < 1) {
+	else if (Customer_Snack.quantity() < 1) {
         cout << "Product is out of stock";
         return;
     }
+	
     //add expiration date check here
 
 }
