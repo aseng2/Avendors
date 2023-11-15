@@ -72,4 +72,5 @@ private:
 	void checkRecall();
 	void restockProcess();
 	void Menu();
+	void SaleProcess();
 };

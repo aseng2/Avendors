@@ -3,8 +3,9 @@
 
 using namespace std;
 
-Vend::Vend() 
+Vend::Vend(int CurrentDate) 
 {
+	CurrentDate = CurrentDate;//pretty sure this is unecessary but i find it funny
     // Constructor implementation
     // Initialize member variables if needed
 }
@@ -72,7 +73,7 @@ void Vend::checkRecall()
 
 void Vend::restockProcess(){
 	string upcCode;
-	CreateRemevedList( 20231114/*here is where we pass the current date int for now place holder*/);
+	CreateRemevedList( CurrentDate );
 	DisplayRemovedList();
 	while(upcCode != "0"){
 		cout << "Please enter UPC code" << std::endl;
@@ -187,9 +188,11 @@ void Vend::SaleProcess() {
 		return;
 	}
 	/*RECALL CHECK else if ()*/
-	else if (Customer_Snack.expireddate() > CurrentDate ){
+	else if (Customer_Snack.expireddate() < CurrentDate ){
+		cout << "Item is expired. Not for sale" << endl;
+	}
+	else {
 		
 	}
-    //add expiration date check here
 
 }
