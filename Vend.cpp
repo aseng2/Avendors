@@ -126,7 +126,7 @@ void Vend::restockProcess(){
 			cin >> number;
 			cout << endl;
 			if (number < targetToAdd.expireddate()){
-				// UpdateDate(targetToAdd, number, getter function goes here);
+				UpdateDate(targetToAdd, number, getSnackList());
 			}
 		}
 	}
