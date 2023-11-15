@@ -9,14 +9,14 @@ Vend::Vend(int CurrentDate)
     // Constructor implementation
     // Initialize member variables if needed
 }
-
+/*
 void Vend::Customer_Request(Inventory List) 
 {
 	cout << "Welcome! Please Enter Your Snack Request: ";
 	cin >> RequestNum;
 
 	//for management false means it is recalled
-	/*Recall(snack object)
+	Recall(snack object)
 		if (false)
 		{
 			cout << "This object has been recalled"
@@ -33,7 +33,7 @@ void Vend::Customer_Request(Inventory List)
 	else
 	{
 		cout << "This item is either out of stock, expired, or has been recalled" << endl;
-	}*/
+	}
 	Vend::checkInventory(List);
 	Vend::checkRecall();
 }
@@ -58,7 +58,7 @@ void Vend::checkInventory(Inventory List)
     // Implementation of checkInventory function
     // ...
 }
-
+ not working, not using, don't think we need but not deleting yet
 void Vend::checkRecall() 
 {
 	Management Boss();			//this will need to be changed later, but works for now	
@@ -70,6 +70,7 @@ void Vend::checkRecall()
 			Vend::VendItem();
 		}//vend function
 }
+*/
 
 void Vend::restockProcess(){
 	string upcCode;
@@ -150,7 +151,7 @@ void Vend::Menu()
         else if (iss >> convertedValue) {
             // Conversion successful
             CustomerMoney = CustomerMoney + convertedValue;
-            convertedValue == 0;
+            convertedValue = 0;
 			cout << "Money in machine: $" << CustomerMoney << endl;
 
 

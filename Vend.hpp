@@ -40,10 +40,10 @@ class Vend
 #pragma once
 #include <iostream>
 #include <string>
-#include "Management.hpp"
 #include "Inventory.hpp"
 #include "restocker.h"
 #include "sstream"
+#include "Management.hpp"
 
 
 
@@ -51,8 +51,9 @@ class Vend: public Restocker
 {
 public:
 	Vend(int CurrentDate); // Constructor
-	void Customer_Request(Inventory List);
-	void VendItem();
+	//void Customer_Request(Inventory List);
+	//void VendItem();
+	void Menu();
 //	void Notification(); ADD LATER
 
 private:
@@ -60,17 +61,17 @@ private:
 	std::string RequestNum; // the number the customer inputs to choose a snack.
 	Snack Item;
 	Inventory Stuff;
-	double MoneyIn; // tracks how much total money is in the machine
+	double MoneyIn = 0; // tracks how much total money is in the machine
 	double Sales = 0; // tracks the amount of money made from sales
-	double CustomerMoney;
-	char ValidInput;
+	double CustomerMoney = 0;
+	//char ValidInput;
 	std::string RestockCode = "AA11";  //code to access restock
 	std::string CustomerInput; 
-	std::string ExitCode;
+	std::string ExitCode = "BB22";
 
 	void checkInventory(Inventory List);
-	void checkRecall();
+	//void checkRecall();
 	void restockProcess();
-	void Menu();
+
 	void SaleProcess();
 };
