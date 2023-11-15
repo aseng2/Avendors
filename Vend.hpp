@@ -50,12 +50,13 @@ class Vend
 class Vend: public Restocker
 {
 public:
-	Vend(); // Constructor
+	Vend(int CurrentDate); // Constructor
 	void Customer_Request(Inventory List);
 	void VendItem();
 //	void Notification(); ADD LATER
 
 private:
+	int CurrentDate;
 	std::string RequestNum; // the number the customer inputs to choose a snack.
 	Snack Item;
 	Inventory Stuff;
@@ -64,11 +65,10 @@ private:
 	double CustomerMoney;
 	char ValidInput;
 	std::string RestockCode = "AA11";  //code to access restock
-	std::string ExitCode = "BB22";
 	std::string CustomerInput; 
+	std::string ExitCode;
 
 	void checkInventory(Inventory List);
-	void SaleProcess();
 	void checkRecall();
 	void restockProcess();
 	void Menu();
