@@ -175,14 +175,21 @@ void Vend::Menu()
 void Vend::SaleProcess() {
     Snack Customer_Snack = search(CustomerInput);
     if (Customer_Snack.upcCode() == "") {
-        cout << "Invalid Input";
+        cout << "Invalid Input" << endl;
         return;
     }
 	else if (Customer_Snack.quantity() < 1) {
-        cout << "Product is out of stock";
+        cout << "Product is out of stock" << endl;
         return;
     }
-	
+	else if (Customer_Snack.price() > CustomerMoney ) {
+		cout << "Not enough money, price of object is: $" << Customer_Snack.price() << endl;
+		return;
+	}
+	/*RECALL CHECK else if ()*/
+	else if (Customer_Snack.expireddate() > CurrentDate ){
+		
+	}
     //add expiration date check here
 
 }
