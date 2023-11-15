@@ -33,8 +33,7 @@ string Restocker::get_restocker_name()
 
 void Restocker::restock(Snack snack)
 {
-	Inventory restockInv;
-	restockInv.RestockInventory(snack);
+	RestockInventory(snack);
 }
 
 
