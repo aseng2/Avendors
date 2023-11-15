@@ -137,10 +137,26 @@ Snack Inventory::searchRemovedList(std::string targetUPCcode) { //problem with s
     return fail;
 }
 
-Snack Inventory::getSnackList(){
+Snack Inventory::getSnackList() {
     return SnackList;
   }
 
 void Inventory::setSnackList(std::vector<Snack> newList) {
         SnackList = NewList;
     }
+
+Snack Inventory::getSalesList() {
+    return SalesList;
+}
+
+void Inventory::setSalesList(std::vector<Snack> newList) {
+    SalesList = newList
+}
+
+Snack Inventory::getRemoveList() {
+    return RemoveList;
+}
+
+void Inventory::setRemoveList(std::vector<Snack> newList) {
+    RemoveList = newList
+}
