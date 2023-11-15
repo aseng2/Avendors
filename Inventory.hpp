@@ -29,7 +29,12 @@ public:
     int RemovedListindex();
     Snack searchRemovedList(std::string targetUPCcod);
     void UpdateDate(Snack& SnackObj, int NewDate, std::vector<Snack> Modified);
-
+    vector<Snack> getSnackList();
+    void setSnackList(std::vector<Snack> newList);
+    vector<Snack> getSalesList();
+    void setSalesList(std::vector<Snack> newList);
+    vector<Snack> getRemoveList();
+    void setRemoveList(std::vector<Snack> newList);
 
 };
 
