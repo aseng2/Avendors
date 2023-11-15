@@ -190,9 +190,17 @@ void Vend::SaleProcess() {
 	/*RECALL CHECK else if ()*/
 	else if (Customer_Snack.expireddate() < CurrentDate ){
 		cout << "Item is expired. Not for sale" << endl;
+		return;
 	}
 	else {
-		
+		BuyInventory(Customer_Snack);
+		cout << "Vending " << Customer_Snack.productName() << endl;
+		if (CustomerMoney > Customer_Snack.price()) {
+			cout << "Returning money: $" << CustomerMoney - Customer_Snack.price() << endl;
+			return;
+		}
+		return;
+
 	}
 
 }
