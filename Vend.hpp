@@ -54,6 +54,8 @@ public:
 	//void Customer_Request(Inventory List);
 	//void VendItem();
 	void Menu();
+	void setCurrentDate(int NewDate);
+	int getCurrentDate();
 //	void Notification(); ADD LATER
 
 private:

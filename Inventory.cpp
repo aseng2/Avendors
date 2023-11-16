@@ -114,8 +114,6 @@ void Inventory::CreateRemevedList(int CurrentDate) {
         }
         else {
             //recall check with management class implement later when figure out management
-            SnackList[i].expireddate(99999999);
-            SnackList[i].quantity(0);
         }    
     }
     DisplayRemovedList();

@@ -5,7 +5,7 @@ using namespace std;
 
 Vend::Vend(int CurrentDate) 
 {
-	CurrentDate = CurrentDate;//pretty sure this is unecessary but i find it funny
+	setCurrentDate(CurrentDate);//pretty sure this is unecessary but i find it funny
     // Constructor implementation
     // Initialize member variables if needed
 }
@@ -71,7 +71,12 @@ void Vend::checkRecall()
 		}//vend function
 }
 */
-
+void Vend::setCurrentDate(int NewDate){
+	CurrentDate = NewDate;
+}
+int Vend::getCurrentDate(){
+	return CurrentDate;
+}
 void Vend::restockProcess(){
 	string upcCode;
 	CreateRemevedList( CurrentDate );
@@ -143,7 +148,6 @@ void Vend::Menu()
     {
         cout << "Please Input Value:" << endl;
         cin >> CustomerInput;
-        cout << endl;
         std::istringstream iss(CustomerInput);
         double convertedValue;
 
