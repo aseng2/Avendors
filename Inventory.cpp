@@ -137,6 +137,17 @@ Snack Inventory::searchRemovedList(std::string targetUPCcode) { //problem with s
     return fail;
 }
 
+Snack Inventory::searchSnackList(std::string targetUPCcode) {
+    for (int i = 0; i < SnackList.size(); i++){
+        Snack test = SnackList[i];
+        if (targetUPCcode == test.upcCode()){
+            return test;
+        }
+    }
+    Snack fail;
+    return fail;
+}
+
 std::vector<Snack> Inventory::getSnackList() {
     return SnackList;
   }

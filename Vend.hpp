@@ -47,7 +47,7 @@ class Vend
 
 
 
-class Vend: public Restocker
+class Vend : public Restocker		//trying removing restocker inheritance
 {
 public:
 	Vend(int CurrentDate); // Constructor

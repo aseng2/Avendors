@@ -85,7 +85,7 @@ void Vend::restockProcess(){
 		}
 		string input;
 		int number;
-		Snack targetToAdd = searchList(upcCode);
+		Snack targetToAdd = searchSnackList(upcCode);
 		if (targetToAdd.upcCode() == "") {
 
 			cout << "Does not belong in this machine. 0 to overide, anything else to cancel"<< endl;
@@ -95,23 +95,25 @@ void Vend::restockProcess(){
 				cout << "Please enter UPCcode: " << endl;
 				cin >> input;
 				targetToAdd.upcCode(input);
-				cout << endl << "Please enter Product Name: " << endl;
+				cout << "Please enter Product Name: " << endl;
 				cin >> input;
 				targetToAdd.productName(input);
-				cout << endl << "Please enter Brand Name: " << endl;
+				cout << "Please enter Brand Name: " << endl;
 				cin >> input;
 				targetToAdd.brandName(input);
-				cout << endl << "Please enter quantity to add, must be an integer: " << endl;
+				cout << "Please enter Spot in Machine: " << endl;
+				cin >> input;
+				targetToAdd.vendingNum(input);
+				cout << "Please enter quantity to add, must be an integer: " << endl;
 				cin >> input;
 				number = stoi(input);
 				targetToAdd.quantity(number);
-				cout << endl << "Please enter date of expiration, as integer year month day: " << endl;
+				cout << "Please enter date of expiration, as integer year month day: " << endl;
 				cin >> input;
 				number = stoi(input);
 				targetToAdd.expireddate(number);
-				cout << endl << "Please enter the price as double: " << endl;
+				cout << "Please enter the price as double: " << endl;
 				cin >> input;
-				cout << endl;
 				double numberTwo;
 				numberTwo = stod(input);
 				targetToAdd.price(numberTwo);
@@ -122,7 +124,8 @@ void Vend::restockProcess(){
 			cout << "Please enter amount adding as an integer: " << endl;
 			cin >> number;
 			for (int i = 0; i < number; i++){
-				restock(targetToAdd);
+				restock(targetToAdd);				
+				//RestockInventory(targetToAdd);		 trying something
 			}
 			cout << endl << "Please enter the soonest expiration date as an integer in year month date: " << endl;
 			cin >> number;
@@ -163,7 +166,7 @@ void Vend::Menu()
             restockProcess();
         }
 		else if (CustomerInput == ExitCode){
-			cout << "shutting down begun";
+			cout << "shutting down begun" << endl;
 			return;
 		}
         else {
@@ -198,6 +201,7 @@ void Vend::SaleProcess() {
 		cout << "Vending " << Customer_Snack.productName() << endl;
 		if (CustomerMoney > Customer_Snack.price()) {
 			cout << "Returning money: $" << CustomerMoney - Customer_Snack.price() << endl;
+			CustomerMoney = 0;
 			return;
 		}
 		return;
