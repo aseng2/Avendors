@@ -80,7 +80,6 @@ int Vend::getCurrentDate(){
 void Vend::restockProcess(){
 	string upcCode;
 	CreateRemevedList( CurrentDate );
-	DisplayRemovedList();
 	while(upcCode != "0"){
 		cout << "Please enter UPC code" << std::endl;
 		cout << "or enter '0' to exit" << std::endl;
