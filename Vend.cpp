@@ -207,6 +207,7 @@ void Vend::SaleProcess() {
 			CustomerMoney = 0;
 			return;
 		}
+		CustomerMoney = 0;
 		return;
 
 	}

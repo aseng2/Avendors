@@ -95,10 +95,14 @@ void Inventory::displaySalesHistory(){
 }
 
 void Inventory::DisplayRemovedList(){
+    if (RemoveList.size() == 0){
+        return;
+    }
     std::cout <<"Please Remove These items in the following locations as they may be expired or recalled: " << std::endl;
     for (int i = 0; i < RemoveList.size(); i++) {
         std::cout << RemoveList[i].productName() << " at location: " << RemoveList[i].vendingNum() << std::endl;
     }
+    RemoveList.clear();
 }
 
 void Inventory::CreateRemevedList(int CurrentDate) {

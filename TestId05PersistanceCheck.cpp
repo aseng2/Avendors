@@ -12,5 +12,5 @@ int main (){
     SnackBot.Menu();
     SnackBot.display();
     SnackBot.displaySalesHistory();
-    return 1;
+    return 0;
 }
