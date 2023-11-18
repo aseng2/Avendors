@@ -1,9 +1,9 @@
 #include "Management.hpp"
 
-Management::Management(std::string name, std::vector<std::string> recall){
+Management::Management(std::string name, std::vector<Snack> recall){
     _name = name;
     _recall.clear();
-    for(std::string i : recall)
+    for(Snack i : recall)
         _recall.push_back(i);
 }
 /*
@@ -17,16 +17,16 @@ void Management::setName(std::string newName){
 std::string Management::getName(){
     return _name;
 }
-void Management::setRecall(std::vector<std::string> newList){
+void Management::setRecall(std::vector<Snack> newList){
     _recall.clear();
-    for(std::string i : newList)
+    for(Snack::Snack i : newList)
         _recall.push_back(i);
     }
 bool Management::Recall(Snack object)
 {
     //check if item is in recall
-    for(std::string i : _recall){
-        if (i == object.upcCode()){
+    for(Snack i : _recall){
+        if (i == object){
             return true;
         }
     }
@@ -34,7 +34,7 @@ bool Management::Recall(Snack object)
 }
 void Management::display()
 {
-    for(std::string i : _recall){
+    for(Snack i : _recall){
         //find the display function in the snack object
     }
 }
