@@ -10,7 +10,8 @@ Management::Management(std::string name, std::vector<Snack> recall){
 Management::Management(){
     _name = "";
     _recall.clear();
-}       I Think this isn't necessary*/
+}       I Think this isn't necessary */
+
 void Management::setName(std::string newName){
     _name = newName;
     }
@@ -19,8 +20,10 @@ std::string Management::getName(){
 }
 void Management::setRecall(std::vector<Snack> newList){
     _recall.clear();
-    for(Snack::Snack i : newList)
-        _recall.push_back(i);
+    for(int i = 0; i < newList.size() ; i++){
+        Snack Temp = newList[i];
+        _recall.push_back(Temp);
+        }    
     }
 bool Management::Recall(Snack object)
 {
@@ -37,5 +40,4 @@ void Management::display()
     for(Snack i : _recall){
         //find the display function in the snack object
     }
-}
-        
+}   
