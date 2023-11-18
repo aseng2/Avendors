@@ -26,7 +26,7 @@ int main() {
     readFile("recall.txt");
     Management test("Avendor", recall_items);
 
-    
+    //ORder of parameters when instantiate a Management class
     //string productName, string brandName, string upcCode, string vendingNum, int quantity, double price, int _expireddate
     
     Snack tester("Nacho cheese", "Doritos", "132156", "A1", 10/*quantity*/, 5.00/*price*/, 12102023);
