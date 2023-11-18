@@ -32,3 +32,10 @@ bool Management::Recall(Snack object)
     }
     return false;
 }
+void Management::display()
+{
+    for(std::string i : _recall){
+        //find the display function in the snack object
+    }
+}
+        
