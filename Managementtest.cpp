@@ -4,7 +4,7 @@
 #include <fstream>
 #include <vector>
 
-std::vector<std::string> recall_items;
+std::vector<Snack> recall_items;
 
 void readFile(std::string title){
     std::string myText;
@@ -12,7 +12,9 @@ void readFile(std::string title){
     std::fstream MyReadFile(title);
     if (MyReadFile.is_open()){
         while (getline (MyReadFile, myText)) {
-            recall_items.push_back(myText);
+            //check for read from file for right parameters in order
+            Snack temp(myText[0], myText[1], myText[2], myText[3], myText[4], myText[5], myText[6]);
+            recall_items.push_back(temp);
             }
         //Close the file
         MyReadFile.close();
@@ -38,6 +40,6 @@ int main() {
     std::cout << result << std::endl;
     
     std::cout << "Management Name: " << test.getName() << std::endl;
-    // std::cout << "Items UPC's in recall: " << test.display(); this line not working, probably becuase there is no display function
+    // std::cout << "Items in recall: " << test.display(); this line not working, probably becuase there is no display function
     return 1;
 }
