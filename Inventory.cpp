@@ -117,8 +117,11 @@ void Inventory::CreateRemevedList(int CurrentDate) {
             SnackList[i].quantity(0);
         }
         else {
+        //if(stuff.Recall(Snacklist[i])){
+        //}
+        }
             //recall check with management class implement later when figure out management
-        }    
+    
     }
     DisplayRemovedList();
 }
