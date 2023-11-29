@@ -33,6 +33,7 @@ int main() {
     std::cout << result << std::endl;
     
     std::cout << "Management Name: " << test.getName() << std::endl;
-    std::cout << "Items in recall: " << test.display();
+    std::cout << "Items in recall: ";
+    test.display();
     return 1;
 }
