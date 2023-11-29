@@ -1,34 +1,27 @@
 #include "Snack.hpp"
 #include "Management.hpp"
 #include <iostream>
-#include <fstream>
 #include <vector>
 
-std::vector<Snack> recall_items;
-
-void readFile(std::string title){
-    std::string myText;
-    //Read from the text file
-    std::fstream MyReadFile(title);
-    if (MyReadFile.is_open()){
-        while (getline (MyReadFile, myText)) {
-            //check for read from file for right parameters in order
-            Snack temp(myText[0], myText[1], myText[2], myText[3], myText[4], myText[5], myText[6]);
-            recall_items.push_back(temp);
-            }
-        //Close the file
-        MyReadFile.close();
-        }
-        else{
-            std::cout << "Error opening file";
-            }
-    }
+//Fill the recall with these items on the recall list
+void fill_recall(Management& passed);
+void fill_recall(Management& passed){
+    Snack snack1 ("Nacho cheese", "Doritos", "132156", "A1", 10, 5.00, 12102023);
+    Snack snack2 ("Nacho Ranch", "Doritos", "1111111111", "A2", 01, 2.00, 12312023);
+    Snack snack3 ("Puffs", "Cheetos", "2222222222", "B1", 01, 2.00, 12312023);
+    Snack snack4 ("Flaming Hot", "Doritos", "333333333", "B2", 01, 2.00, 1231202);
+    passed.AddSnackRecall(snack1);
+    passed.AddSnackRecall(snack2);
+    passed.AddSnackRecall(snack3);
+    passed.AddSnackRecall(snack4);
+}
 
 int main() {
-    readFile("Avendor.txt");
-    Management test("Avendor", recall_items);
+    Management test;
+    test.setName("Avendors");
+    fill_recall(test);
 
-    //ORder of parameters when instantiate a Management class
+    //Order of parameters when instantiate a Management class
     //string productName, string brandName, string upcCode, string vendingNum, int quantity, double price, int _expireddate
     
     Snack tester("Nacho cheese", "Doritos", "132156", "A1", 10/*quantity*/, 5.00/*price*/, 12102023);
@@ -40,6 +33,6 @@ int main() {
     std::cout << result << std::endl;
     
     std::cout << "Management Name: " << test.getName() << std::endl;
-    // std::cout << "Items in recall: " << test.display(); this line not working, probably becuase there is no display function
+    std::cout << "Items in recall: " << test.display();
     return 1;
 }
