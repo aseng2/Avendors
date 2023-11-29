@@ -1,15 +1,17 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include <vector>
-#pragma once
 #include "Snack.hpp"    
 
 class Management {
     public:
-    Management(std::string name, std::vector<Snack> recall);
+    Management();
+    ~Management();
     bool Recall(Snack object);
     void setName(std::string newName);
     void setRecall(std::vector<Snack> newRecall);
+    void AddSnackRecall(Snack& SnackObj);
     std::string getName();
     void display();
     
