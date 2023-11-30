@@ -1,5 +1,7 @@
 #include "Snack.hpp"
+#include "Snack.cpp"
 #include "Management.hpp"
+#include "Management.cpp"
 #include <iostream>
 #include <vector>
 
@@ -33,7 +35,8 @@ int main() {
     std::cout << result << std::endl;
     
     std::cout << "Management Name: " << test.getName() << std::endl;
-    std::cout << "Items in recall: ";
+    std::cout << "Items in recall: " << std::endl;
+    std::cout << "UPC Code" << "\tProd Brand" << "\tProd Name" << "\tVend #" << "\tQty" << "\tPrice" << "\tExp Date" << std::endl;
     test.display();
     return 1;
 }
