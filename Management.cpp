@@ -1,7 +1,15 @@
 #include "Management.hpp"
 
 Management::Management(){
-    this->_name = "";
+    this->_name = "Avendors";
+    Snack snack1 ("Nacho cheese", "Doritos", "123456789123", "A1", 10, 5.00, 12102023);
+    Snack snack2 ("Nacho Ranch",  "Doritos", "111111111111", "A2", 01, 2.00, 12312023);
+    Snack snack3 ("Famin Puff",   "Cheetos", "222222222222", "B1", 01, 2.00, 12312023);
+    Snack snack4 ("Dinamita",     "Doritos", "333333333333", "B2", 01, 2.00, 12312023);
+    _recall.push_back(snack1);
+    _recall.push_back(snack2);
+    _recall.push_back(snack3);
+    _recall.push_back(snack4);
 }
 Management::~Management(){};
 void Management::setName(std::string newName){
@@ -33,8 +41,10 @@ void Management::AddSnackRecall(Snack& SnackObj)
 }
 void Management::display()
 {
-    for(Snack i : _recall){
-        //find the display function in the snack object
-        std::cout << i << std::endl;
+    std::cout << "Management Name: " << this->_name << "\n";
+    std::cout << "Items in recall: " << std::endl;
+    std::cout << "UPC Code" << "\tBrand" << "\tProd Name" << "\tVend #" << "\tQty" << "\tPrice" << "\tExp Date" << std::endl;
+    for(Snack temp : _recall){
+        std::cout << temp.upcCode() << "\t" << temp.brandName() << "\t" << temp.productName() << "\t" << temp.vendingNum() << "\t"  << temp.quantity() << "\t"  << temp.price() << "\t"  << temp.expireddate() << "\n";
     }
 }   
