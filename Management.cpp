@@ -21,7 +21,7 @@ bool Management::Recall(Snack object)
 {
     //check if item is in recall
     for(Snack i : _recall){
-        if (i == object){
+        if (i.upcCode() == object.upcCode()){
             return true;
         }
     }
