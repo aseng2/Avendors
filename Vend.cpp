@@ -79,6 +79,8 @@ int Vend::getCurrentDate(){
 }
 void Vend::restockProcess(){
 	string upcCode;
+	Management Avendors;
+	Avendors.display();
 	CreateRemevedList( CurrentDate );
 	while(upcCode != "0"){
 		cout << "Please enter UPC code" << std::endl;
@@ -145,6 +147,7 @@ void Vend::Menu()
 {
     while (CustomerInput != ExitCode)
     {
+		display();
         cout << "Please Input Value:" << endl;
         cin >> CustomerInput;
         std::istringstream iss(CustomerInput);
@@ -181,6 +184,7 @@ void Vend::Menu()
 
 
 void Vend::SaleProcess() {
+	Management Avendors;
     Snack Customer_Snack = search(CustomerInput);
     if (Customer_Snack.upcCode() == "") {
         cout << "Invalid Input" << endl;
@@ -194,7 +198,10 @@ void Vend::SaleProcess() {
 		cout << "Not enough money, price of object is: $" << Customer_Snack.price() << endl;
 		return;
 	}
-	/*RECALL CHECK else if ()*/
+	else if (Avendors.Recall(Customer_Snack)) {
+		cout << "Item on Recall Not for Sale" << endl;
+		return;
+	}
 	else if (Customer_Snack.expireddate() < CurrentDate ){
 		cout << "Item is expired. Not for sale" << endl;
 		return;

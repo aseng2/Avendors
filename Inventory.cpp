@@ -106,6 +106,7 @@ void Inventory::DisplayRemovedList(){
 }
 
 void Inventory::CreateRemevedList(int CurrentDate) {
+    Management Example;
     for (int i = 0; i < SnackList.size(); i++){
         if (SnackList[i].expireddate() <= CurrentDate){
             Snack existCheck = searchRemovedList(SnackList[i].upcCode());
@@ -117,8 +118,10 @@ void Inventory::CreateRemevedList(int CurrentDate) {
             SnackList[i].quantity(0);
         }
         else {
-        //if(stuff.Recall(Snacklist[i])){
-        //}
+            if (Example.Recall(SnackList[i])){
+                RemoveList.push_back(SnackList[i]);
+            }
+
         }
             //recall check with management class implement later when figure out management
     

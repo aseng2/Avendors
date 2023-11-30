@@ -1,7 +1,7 @@
 #include "Snack.hpp"
-//#include "Snack.cpp"
+#include "Snack.cpp"
 #include "Management.hpp"
-//#include "Management.cpp"
+#include "Management.cpp"
 #include <iostream>
 #include <vector>
 
