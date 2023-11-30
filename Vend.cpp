@@ -147,7 +147,11 @@ void Vend::Menu()
 {
     while (CustomerInput != ExitCode)
     {
+		cout << endl;
+		cout << endl;
+		cout << "Current Inventory: " << endl;
 		display();
+		cout << endl;
         cout << "Please Input Value:" << endl;
         cin >> CustomerInput;
         std::istringstream iss(CustomerInput);
@@ -190,14 +194,6 @@ void Vend::SaleProcess() {
         cout << "Invalid Input" << endl;
         return;
     }
-	else if (Customer_Snack.quantity() < 1) {
-        cout << "Product is out of stock" << endl;
-        return;
-    }
-	else if (Customer_Snack.price() > CustomerMoney ) {
-		cout << "Not enough money, price of object is: $" << Customer_Snack.price() << endl;
-		return;
-	}
 	else if (Avendors.Recall(Customer_Snack)) {
 		cout << "Item on Recall Not for Sale" << endl;
 		return;
@@ -206,6 +202,15 @@ void Vend::SaleProcess() {
 		cout << "Item is expired. Not for sale" << endl;
 		return;
 	}
+	else if (Customer_Snack.quantity() < 1) {
+        cout << "Product is out of stock" << endl;
+        return;
+    }
+	else if (Customer_Snack.price() > CustomerMoney ) {
+		cout << "Not enough money, price of object is: $" << Customer_Snack.price() << endl;
+		return;
+	}
+
 	else {
 		BuyInventory(Customer_Snack);
 		cout << "Vending " << Customer_Snack.productName() << endl;

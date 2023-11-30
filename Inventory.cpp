@@ -120,6 +120,7 @@ void Inventory::CreateRemevedList(int CurrentDate) {
         else {
             if (Example.Recall(SnackList[i])){
                 RemoveList.push_back(SnackList[i]);
+                SnackList.erase(SnackList.begin() + i);
             }
 
         }
