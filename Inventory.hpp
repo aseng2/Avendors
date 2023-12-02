@@ -27,7 +27,7 @@ public:
     void DisplayRemovedList();
     Snack searchRemovedList(std::string targetUPCcod);
     Snack searchSnackList(std::string targetUPCcode);
-    void UpdateDate(Snack& SnackObj, int NewDate, std::vector<Snack> Modified);
+    void UpdateDate(Snack& SnackObj, int NewDate);
     std::vector<Snack> getSnackList();
     void setSnackList(std::vector<Snack> newList);
     std::vector<Snack> getSalesList();

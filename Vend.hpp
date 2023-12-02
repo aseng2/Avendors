@@ -32,6 +32,7 @@ private:
 	std::string RestockCode = "AA11";  //code to access restock
 	std::string CustomerInput; 
 	std::string ExitCode = "BB22";
+	std::string SaleHistoryCode = "CC33";
 
 	void checkInventory(Inventory List);
 	//void checkRecall();

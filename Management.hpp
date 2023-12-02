@@ -18,6 +18,7 @@ class Management {
     private:
     std::vector<Snack> _recall;
     std::string _name;
+    //std::string _location;
     // void operation2(params);             not sure what these for
     //void Operation();                     
 };

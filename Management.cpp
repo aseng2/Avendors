@@ -2,10 +2,11 @@
 
 Management::Management(){
     this->_name = "Avendors";
-    Snack snack1 ("Nacho cheese", "Doritos", "123456789123", "A1", 10, 5.00, 12102023);
-    Snack snack2 ("Nacho Ranch",  "Doritos", "111111111111", "A2", 01, 2.00, 12312023);
-    Snack snack3 ("Famin Puff",   "Cheetos", "222222222222", "B1", 01, 2.00, 12312023);
-    Snack snack4 ("Dinamita",     "Doritos", "333333333333", "B2", 01, 2.00, 12312023);
+    //this->_location = "123456 Fake Road Way, Fullerton CA";
+    Snack snack1 ("Nacho cheese", "Doritos", "123456789123", "A1", 10, 5.00);
+    Snack snack2 ("Nacho Ranch",  "Doritos", "111111111111", "A2", 01, 2.00);
+    Snack snack3 ("Famin Puff",   "Cheetos", "222222222222", "B1", 01, 2.00);
+    Snack snack4 ("Dinamita",     "Doritos", "333333333333", "B2", 01, 2.00);
     _recall.push_back(snack1);
     _recall.push_back(snack2);
     _recall.push_back(snack3);
@@ -42,6 +43,7 @@ void Management::AddSnackRecall(Snack& SnackObj)
 void Management::display()
 {
     std::cout << "Management Name: " << this->_name << "\n";
+    //std::cout << "Address: " << this ->_location << "\n";
     std::cout << "Items in recall: " << std::endl;
     std::cout << "UPC Code" << "\tBrand" << "\tProd Name" << "\tVend #" << "\tQty" << "\tPrice" << "\tExp Date" << std::endl;
     for(Snack temp : _recall){

@@ -180,6 +180,10 @@ void Vend::Menu()
 			cout << "shutting down begun" << endl;
 			return;
 		}
+		else if (CustomerInput == SaleHistoryCode){
+			cout << "The Sales History is: " << endl;
+			displaySalesHistory();
+		}
         else {
             // Conversion failed and not equal to "AA11"
 			SaleProcess();

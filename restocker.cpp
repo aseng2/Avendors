@@ -97,7 +97,7 @@ void Restocker::restockProcess(int CurrentDate){
 			cin >> number;
 			cout << endl;
 			if (number < targetToAdd.expireddate()){
-				UpdateDate(targetToAdd, number, getSnackList());
+				UpdateDate(targetToAdd, number);
 			}
 		}
 	}

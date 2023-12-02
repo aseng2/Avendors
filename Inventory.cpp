@@ -94,7 +94,7 @@ void Inventory::displaySalesHistory(){
         std::cout << Output.productName() << ", " << Output.brandName() << ", " << Output.upcCode() << ", "<< Output.quantity() << ", " << Output.vendingNum() << ", " << Output.price() << ", " << Output.expireddate() << std::endl;
         SalesTotal = SalesTotal + (Output.price()*Output.quantity());
     }
-    std::cout << "Total Money Made: $" << SalesTotal;
+    std::cout << "Total Money Made: $" << SalesTotal << std::endl;
 }
 
 void Inventory::DisplayRemovedList(){
@@ -133,9 +133,9 @@ void Inventory::CreateRemevedList(int CurrentDate) {
     DisplayRemovedList();
 }
 
-void Inventory::UpdateDate(Snack& SnackObj, int NewDate, std::vector<Snack> Modified) {
-    int Spot = index(SnackObj, Modified);
-    Modified[Spot].expireddate(NewDate);
+void Inventory::UpdateDate(Snack& SnackObj, int NewDate) {
+    int Spot = index(SnackObj, SnackList);
+    SnackList[Spot].expireddate(NewDate);
 }
 
 Snack Inventory::searchRemovedList(std::string targetUPCcode) { //problem with searchList, right now hardcoded to only work with salesList
