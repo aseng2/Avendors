@@ -18,6 +18,7 @@ public:
 	void set_restocker_name(string name);
 	string get_restocker_name();
 	void restock(Snack snake);
+	void restockProcess(int CurrentDate);
 	//snack_expired(Snake snake);
 
 	//void display_employee();

@@ -77,6 +77,7 @@ void Vend::setCurrentDate(int NewDate){
 int Vend::getCurrentDate(){
 	return CurrentDate;
 }
+/*
 void Vend::restockProcess(){
 	string upcCode;
 	Management Avendors;
@@ -141,7 +142,7 @@ void Vend::restockProcess(){
 			}
 		}
 	}
-}
+}*/
 
 void Vend::Menu()
 {
@@ -173,7 +174,7 @@ void Vend::Menu()
         else if (CustomerInput == RestockCode) {
             // Check if CustomerInput is equal to "AA11"
             std::cout << "Restocker Code Acknowledged" << std::endl;
-            restockProcess();
+            restockProcess(CurrentDate);
         }
 		else if (CustomerInput == ExitCode){
 			cout << "shutting down begun" << endl;
@@ -195,6 +196,7 @@ void Vend::SaleProcess() {
         return;
     }
 	else if (Avendors.Recall(Customer_Snack)) {
+		cout << "Management has been notified that there is recalled items in the vending machine" << endl;
 		cout << "Item on Recall Not for Sale" << endl;
 		return;
 	}
@@ -212,6 +214,9 @@ void Vend::SaleProcess() {
 	}
 
 	else {
+		if (Customer_Snack.quantity() < 2) {
+			cout << "Management has been notified of need of restocking" << endl;
+		}
 		BuyInventory(Customer_Snack);
 		cout << "Vending " << Customer_Snack.productName() << endl;
 		if (CustomerMoney > Customer_Snack.price()) {

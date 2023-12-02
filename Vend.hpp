@@ -35,7 +35,7 @@ private:
 
 	void checkInventory(Inventory List);
 	//void checkRecall();
-	void restockProcess();
+	//void restockProcess();
 
 	void SaleProcess();
 };
