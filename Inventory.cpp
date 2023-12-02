@@ -87,11 +87,14 @@ Snack Inventory::searchList(std::string targetUPCcode) { //problem with searchLi
 void Inventory::displaySalesHistory(){
     std::cout << "Sales History:" << std::endl;
     std::cout << "Product Name, Brand Name, UPCcode, Amount sold, location, price, expiration date" << std::endl;
+    Snack Output;
+    double SalesTotal;
     for (int i = 0; i < SalesList.size(); i++){
-        Snack Output = SalesList[i];
+        Output = SalesList[i];
         std::cout << Output.productName() << ", " << Output.brandName() << ", " << Output.upcCode() << ", "<< Output.quantity() << ", " << Output.vendingNum() << ", " << Output.price() << ", " << Output.expireddate() << std::endl;
-
+        SalesTotal = SalesTotal + (Output.price()*Output.quantity());
     }
+    std::cout << "Total Money Made: $" << SalesTotal;
 }
 
 void Inventory::DisplayRemovedList(){
